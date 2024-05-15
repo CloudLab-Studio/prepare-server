@@ -13,3 +13,5 @@ sudo chmod +x /usr/local/bin/docker-compose
 # Verify installation
 docker --version
 docker-compose --version
+
+echo "Docker installation completed successfully."
