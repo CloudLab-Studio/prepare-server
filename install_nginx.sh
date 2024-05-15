@@ -66,3 +66,7 @@ sudo ln -s /snap/bin/certbot /usr/bin/certbot
 sudo service nginx restart
 
 echo "Certbot installed successfully."
+
+# Open ports 80 and 443 in the firewall
+sudo ufw allow 80
+sudo ufw allow 443
