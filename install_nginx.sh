@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Check if the script is running on Ubuntu
 if [ "$(uname -s)" != "Linux" ] || [ "$(lsb_release -si)" != "Ubuntu" ]; then
     echo "This script is intended to run on Ubuntu only."
@@ -47,3 +48,21 @@ sudo systemctl enable nginx
 sudo systemctl status nginx
 
 echo "Nginx installation completed successfully."
+
+# Check if snapd is installed, if not install it
+if ! command -v snap >/dev/null; then
+    sudo apt install -y snapd
+    echo "Snapd installed successfully."
+fi
+
+sudo snap install core; sudo snap refresh core
+
+sudo apt remove certbot
+
+sudo snap install --classic certbot
+
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+
+sudo service nginx restart
+
+echo "Certbot installed successfully."
