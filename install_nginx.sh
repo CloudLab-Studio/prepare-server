@@ -70,3 +70,5 @@ echo "Certbot installed successfully."
 # Open ports 80 and 443 in the firewall
 sudo ufw allow 80
 sudo ufw allow 443
+
+echo "Ports 80 and 443 opened in the firewall."
