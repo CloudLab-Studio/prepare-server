@@ -1,4 +1,9 @@
 #!/bin/bash
+# Check if the script is running on Ubuntu
+if [ "$(uname -s)" != "Linux" ] || [ "$(lsb_release -si)" != "Ubuntu" ]; then
+    echo "This script is intended to run on Ubuntu only."
+    exit 1
+fi
 
 # Function to display usage information
 usage() {
