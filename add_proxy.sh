@@ -42,9 +42,6 @@ EOF
 systemctl restart nginx
 
 # Run Certbot to obtain SSL certificate
-certbot certonly --nginx -d ${domain} --email ${email} --agree-tos --non-interactive --redirect
-
-# Generate Docker container
-docker run -d -p ${port}:80 --name ${domain} nginx
+certbot --nginx -d ${domain} --email ${email} --agree-tos --non-interactive --redirect
 
 echo "Proxy setup complete!"
